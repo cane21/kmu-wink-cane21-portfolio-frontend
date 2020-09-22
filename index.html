@@ -7,7 +7,12 @@
     <style>
         body
         {
+            margin:0px;
+            /*background: #5b7fd5;*/
         }
+
+
+
         .container
         {
             margin:0px auto;
@@ -29,11 +34,11 @@
             margin-top:24px;
             align-items: center;
         }
-        .top_section .button
+        .top_section a
         {
             margin-left:860px;
         }
-        .top_section .button div
+        .top_section a div
         {
             padding: 10px;
             margin:0px;
@@ -67,6 +72,15 @@
             margin-top:46px;
             margin-left:142px;
             width:0px;
+        }
+
+        .middle_section #midleft .button
+        {
+            margin-top:103.26px;
+            width: 207px;
+            height: 44.68px;
+            left: 145px;
+            top: 356.12px;
         }
 
         .middle_section #midleft .date
@@ -224,14 +238,7 @@
         {
             height:200px;
         }
-        .middle_section #midleft .button
-        {
-            margin-top:103.26px;
-            width: 207px;
-            height: 44.68px;
-            left: 145px;
-            top: 356.12px;
-        }
+
 
         .bottom_section
         {
@@ -264,7 +271,10 @@
             border: 3px solid #FFFFFF;
             transition:all 1s;
             cursor: pointer;
+        }
 
+        a{
+            text-decoration: none;
         }
 
         .button:hover
@@ -279,7 +289,7 @@
         {
             text-align:center;
             margin-top:5px;
-            font-family: Roboto;
+            /*font-family: Roboto;*/
             font-style: normal;
             font-weight: normal;
             font-size: 24px;
@@ -287,11 +297,45 @@
             color: #FFFFFF;
         }
 
+
         footer
         {
             text-align:center;
             font-family:Roboto;
             font-size:20px;
+        }
+
+        @media(max-width: 780px)
+        {
+            body
+            {
+                background-color: lightgreen;
+            }
+
+            .middle_section
+            {
+                /*height:700px;*/
+            }
+
+            .middle_section #midleft
+            {
+                /*display:flex;*/
+            }
+
+            .middle_section .weather_today
+            {
+                /*display:flex;*/
+                /*flex-direction: column;*/
+                /*margin-left:0px;*/
+            }
+            .middle_section #midleft .button
+            {
+            }
+            .middle_section .content
+            {
+                /*position:absolute;*/
+                /*flex-direction: column;*/
+            }
         }
     </style>
 
@@ -306,12 +350,11 @@
                 WEATHER
             </div>
 
-            <div class="button">
+            <a href="subpage.html" class="button" >
                 <div>
-                    TOMORROW
+                    미세먼지
                 </div>
-
-            </div>
+            </a>
 
         </div>
     </div>
@@ -353,7 +396,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                         <div class="wind_speed">
                             6 m/s
@@ -381,7 +424,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                         <div class="wind_speed">
                             6 m/s
@@ -409,7 +452,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                         <div class="wind_speed">
                             6 m/s
@@ -437,7 +480,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                         <div class="wind_speed">
                             6 m/s
@@ -465,7 +508,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                         <div class="wind_speed">
                             6 m/s
@@ -508,7 +551,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -533,7 +576,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -558,7 +601,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -583,7 +626,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -608,7 +651,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -633,7 +676,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
@@ -658,7 +701,7 @@
                             </div>
                         </div>
 
-                        <img src="images/Sunny.png" class="symbol_weather" alt="Sunny.png">
+                        <img src="images/sunny.png" class="symbol_weather" alt="Sunny.png">
 
                     </div>
                 </div>
