@@ -302,8 +302,32 @@
 
         .main_item .symbol_weather
         {
+            position:relative;
             width: 60px;
             height: 60px;
+
+            /* 아래에서 만든 애니메이션 적용하기 */
+            animation-name: bounce;
+            animation-duration: 1s;
+            animation-iteration-count: infinite;
+        }
+
+        /*@keyframes myanim{*/
+        /*    0% {left: 0px; top: 0px;}*/
+        /*    50% {left: 200px; top: 0px;}*/
+        /*    100% {left: 0px; top: 0px;}*/
+        /*}*/
+
+        @keyframes bounce{
+            0%, 100%{
+                top: 5px;
+                animation-timing-function: ease-out;
+            }
+
+            50%{
+                top: 20px;
+                animation-timing-function: ease-in;
+            }
         }
 
         .main_item .wind_speed
@@ -408,22 +432,6 @@
             position: relative;
         }
 
-        /*#main-menu > li > a {*/
-        /*    font-size: 0.85rem;*/
-        /*    color: rgba(255,255,255,0.85);*/
-        /*    text-align: center;*/
-        /*    text-decoration: none;*/
-        /*    letter-spacing: 0.05em;*/
-        /*    display: block;*/
-        /*    padding: 14px 36px;*/
-        /*    border-right: 1px solid rgba(0,0,0,0.15);*/
-        /*    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);*/
-        /*}*/
-
-        /*#main-menu > li:nth-child(1) > a {*/
-        /*    border-left: 1px solid rgba(0,0,0,0.15);*/
-        /*}*/
-
         #city_menu > li {
             padding: 10px 41px;
             border-bottom: 1px solid rgba(0,0,0,0.15);
@@ -455,6 +463,9 @@
             visibility: hidden;
             transition: all 0.15s ease-in;
         }
+
+
+
 
         /*태블릿*/
         @media(max-width: 1024px)
@@ -553,8 +564,6 @@
             {
             }
 
-
-
         }
     </style>
 </head>
@@ -569,7 +578,7 @@
 
             <a href="subpage.html" class="button" >
                 <div>
-                    미세먼지
+                    불쾌지수
                 </div>
             </a>
         </div>
