@@ -5,108 +5,93 @@
     <title>Weather</title>
 
     <script>
-        var sLocation="London";
-        async function getWeather()
+        var sLocation="Busan";
+        var coord = {}
+        coord['SEOUL'] = 'lat=37.566631&lon=126.978225';
+        coord['BUSAN'] = 'lat=35.179703&lon=129.075028';
+        coord['GWANGJU'] = 'lat=37.428510&lon=127.254775';
+        coord['INCHEON'] = 'lat=37.455862&lon=126.705788';
+        coord['JEONJU'] = 'lat=35.823941&lon=127.384508';
+        coord['DAEJUN'] = 'lat=36.350379&lon=127.384508';
+        coord['IKSAN'] = 'lat=35.948046&lon=126.957514';
+        coord['ULSAN'] = 'lat=35.538524&lon=129.311592';
+
+        var imgName={}
+        imgName['Clear'] = 'images/wi-day-sunny.svg'
+        imgName['Clouds'] = 'images/wi-cloudy.svg'
+        imgName['Rain'] = 'images/wi-day-rain-mix.svg'
+
+        async function getWeather(sCityId)
         {
-            // return await (await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + sLocation + '&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
-            //  return await (await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Seoul&units=metric&cnt=80&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
-            return await (await fetch('http://api.openweathermap.org/data/2.5/onecall?lat=37.566631&lon=126.978225&exclude=minutely&units=metric&lang=kr&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
+            return await (await fetch('http://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
         }
 
         window.addEventListener('load', async function()
         {
-            // var de = ["-","-", " ", ":",":"," "];
-            // var kor = ["년","월", "일", "시","분","초"];
-            // var time = [re_year, re_month, re_day, re_hours,re_min, re_seconde];
-            //
-            // var result_de ="";
-            // for(var i =0; i <= kor.length-1; i++)
-            // {
-            //     result_de += time[i]+ de[i];
-            // }
-
-            const weatherResponse = await getWeather();
-             // console.log(weatherResponse.weather[0].main);
-            // console.log("온도", weatherResponse.main.temp - 273.15);
-            console.log(weatherResponse);
-            // console.log(weatherResponse.hourly[0].temp);
-
-            // t[0].innerHTML = parseInt(weatherResponse.main.temp - 273.15);
-            var HourArray= new Array();
-            var RealData = new Array();
-            var Hour_now;
-            for(var i = 0 ; i< weatherResponse.hourly.length; i++)
-            {
-                HourArray[i] = weatherResponse.hourly[i].dt;
-                // RealData[i] = weatherResponse;
-                var date = new Date(HourArray[i]*1000);
-
-                var re_year = date.getFullYear();//year
-                var re_month = date.getMonth()+1;//month
-
-                var re_day = date.getDate();//day
-                var re_hours  = date.getHours();//hour
-                var re_min = date.getMinutes()//minutes
-                var re_seconde = date.getSeconds();//seconde
-
-                if(i==0)
-                {
-                    Hour_now = re_hours;
-                }
-
-                HourArray[i] = re_hours;
-                // console.log(HourArray[i]);
-                // console.log(weatherResponse.hourly[i].temp)
-            }
-            var t = document.getElementsByClassName("item_temperature");
-            var timeArray = document.getElementsByClassName("item_time");
-            var windArray =document.getElementsByClassName("wind_speed");
-
-            var count=0;
-            for(var i = 0 ; i< 5 ; i++)
-            {
-                // console.log(weatherResponse.hourly[count].temp);
-                t[i].innerHTML = parseInt(Math.round(weatherResponse.hourly[count].temp));
-                windArray[i].innerHTML = weatherResponse.hourly[count].wind_speed + " m/s";
-                if(i!=0)
-                {
-                    timeArray[i].innerHTML = HourArray[count] + ":00";
-                }
-
-                count+=3;
-            }
-
-
-
+            city_click('SEOUL');
         });
 
-        function SetWeather()
+        async function city_click(cityId)
         {
+                var weatherResponse = await getWeather(cityId);
 
+                document.getElementsByClassName("city")[0].innerHTML = cityId;
+                console.log(weatherResponse);
+                var HourArray= new Array();
+                var RealData = new Array();
+                var Hour_now;
+                for(var i = 0 ; i< weatherResponse.hourly.length; i++)
+                {
+                    console.log(weatherResponse.hourly[i].weather[0].main);
+                    HourArray[i] = weatherResponse.hourly[i].dt;
+                    // RealData[i] = weatherResponse;
+                    var date = new Date(HourArray[i]*1000);
+
+                    var re_year = date.getFullYear();//year
+                    var re_month = date.getMonth()+1;//month
+
+                    var re_day = date.getDate();//day
+                    var re_hours  = date.getHours();//hour
+                    var re_min = date.getMinutes()//minutes
+                    var re_seconde = date.getSeconds();//seconde
+
+                    if(i==0)
+                    {
+                        Hour_now = re_hours;
+                    }
+
+                    HourArray[i] = re_hours;
+                    // console.log(HourArray[i]);
+                    // console.log(weatherResponse.hourly[i].temp)
+                }
+
+                var t = document.getElementsByClassName("item_temperature");
+                var timeArray = document.getElementsByClassName("item_time");
+                var windArray =document.getElementsByClassName("wind_speed");
+                var count=0;
+                var weatherImg = document.getElementsByClassName("symbol_weather");
+
+                for(var i = 0 ; i< 5 ; i++)
+                {
+                    // console.log(weatherResponse.hourly[count].temp);
+                    t[i].innerHTML = parseInt(Math.round(weatherResponse.hourly[count].temp));
+                    windArray[i].innerHTML = weatherResponse.hourly[count].wind_speed + " m/s";
+                    if(i!=0)
+                    {
+                        timeArray[i].innerHTML = HourArray[count] + ":00";
+                    }
+
+                    weatherImg[i].setAttribute('src',imgName[weatherResponse.hourly[count].weather[0].main]);
+                    count+=3;
+                }
+
+                for(var i=0 ; i< 7; i++)
+                {
+                    t[i+5].innerHTML = parseInt(Math.round(weatherResponse.daily[i].temp.day));
+                    weatherImg[i+5].setAttribute('src',imgName[weatherResponse.daily[i].weather[0].main]);
+                }
         }
 
-        // var xhr = new XMLHttpRequest();
-        // var url = 'http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList'; /*URL*/
-        // var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'7zwa6MtWlhJ5XlgCEPah2NDInv%2FgdbSEjvb8h4kxAFyV9jyksgmCihZ4eZGOahNLqWgNpaUIVEfgpTQ7FfWyow%3D%3D'; /*Service Key*/
-        // queryParams += '&' + encodeURIComponent('ServiceKey') + '=' + encodeURIComponent('-'); /**/
-        // queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
-        // queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
-        // queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('XML'); /**/
-        // queryParams += '&' + encodeURIComponent('dataCd') + '=' + encodeURIComponent('ASOS'); /**/
-        // queryParams += '&' + encodeURIComponent('dateCd') + '=' + encodeURIComponent('HR'); /**/
-        // queryParams += '&' + encodeURIComponent('startDt') + '=' + encodeURIComponent('20100101'); /**/
-        // queryParams += '&' + encodeURIComponent('startHh') + '=' + encodeURIComponent('01'); /**/
-        // queryParams += '&' + encodeURIComponent('endDt') + '=' + encodeURIComponent('20100601'); /**/
-        // queryParams += '&' + encodeURIComponent('endHh') + '=' + encodeURIComponent('01'); /**/
-        // queryParams += '&' + encodeURIComponent('stnIds') + '=' + encodeURIComponent('108'); /**/
-        // xhr.open('GET', url + queryParams);
-        // xhr.onreadystatechange = function () {
-        //     if (this.readyState == 4) {
-        //         alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-        //     }
-        // };
-        //
-        // xhr.send('');
     </script>
 
     <style>
@@ -211,13 +196,13 @@
         .middle_section #midleft .city
         {
             margin-top:0.67px;
-            width: 248px;
+            width:248px;
             height: 79.43px;
 
             font-family: Roboto;
             font-style: normal;
             font-weight: normal;
-            font-size: 68px;
+            font-size: 60px;
             line-height: 80px;
 
             letter-spacing: 0.15em;
@@ -390,9 +375,7 @@
         {
             color:#fff;
             box-shadow:350px 0 0 0 rgba(1,1,0,0.5) inset;
-
         }
-
 
         .button div
         {
@@ -411,6 +394,66 @@
             text-align:center;
             font-family:Roboto;
             font-size:20px;
+        }
+
+        ul,li
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        #main-menu > li {
+            float: left;
+            position: relative;
+        }
+
+        /*#main-menu > li > a {*/
+        /*    font-size: 0.85rem;*/
+        /*    color: rgba(255,255,255,0.85);*/
+        /*    text-align: center;*/
+        /*    text-decoration: none;*/
+        /*    letter-spacing: 0.05em;*/
+        /*    display: block;*/
+        /*    padding: 14px 36px;*/
+        /*    border-right: 1px solid rgba(0,0,0,0.15);*/
+        /*    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);*/
+        /*}*/
+
+        /*#main-menu > li:nth-child(1) > a {*/
+        /*    border-left: 1px solid rgba(0,0,0,0.15);*/
+        /*}*/
+
+        #city_menu > li {
+            padding: 10px 41px;
+            border-bottom: 1px solid rgba(0,0,0,0.15);
+        }
+
+        #city_menu > li >  a
+        {
+            color: rgba(255,255,255,0.6);
+
+            text-decoration: none;
+        }
+
+        .button:hover #city_menu
+        {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #city_menu > li >  a:hover {
+            text-decoration: underline;
+        }
+
+        #city_menu
+        {
+            margin-top:10px;
+            position: absolute;
+            background: #182952;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.15s ease-in;
         }
 
         /*태블릿*/
@@ -510,6 +553,8 @@
             {
             }
 
+
+
         }
     </style>
 </head>
@@ -533,6 +578,7 @@
     <div class="middle_section">
         <div class="content">
             <section id="midleft">
+
                 <div class="date">
                     Monday 9/14
                 </div>
@@ -542,7 +588,19 @@
                 </div>
 
                 <div class="button">
-                    <div>select city</div>
+                    <div id="main-menu">
+                        select city
+                        <ul id = "city_menu">
+                            <li><a href="#" id="SEOUL" onclick="city_click(this.id)">SEOUL</a></li>
+                            <li><a href="#" id="BUSAN" onclick="city_click(this.id)">BUSAN</a></li>
+                            <li><a href="#" id="GWANGJU" onclick="city_click(this.id)">GWANG-JU</a></li>
+                            <li><a href="#" id="INCHEON" onclick="city_click(this.id)">INCHEON</a></li>
+                            <li><a href="#" id="JEONJU" onclick="city_click(this.id)">JEONJU</a></li>
+                            <li><a href="#" id="DAEJUN" onclick="city_click(this.id)">DAEJUN</a></li>
+                            <li><a href="#" id="IKSAN" onclick="city_click(this.id)">IKSAN</a></li>
+                            <li><a href="#" id="ULSAN" onclick="city_click(this.id)">ULSAN</a></li>
+                        </ul>
+                    </div>
                 </div>
             </section>
 
