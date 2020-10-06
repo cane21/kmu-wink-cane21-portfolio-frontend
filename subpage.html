@@ -8,7 +8,7 @@
 
         async function getWeather()
         {
-            return await (await fetch('http://api.openweathermap.org/data/2.5/onecall?'+ 'lat=37.566631&lon=126.978225' +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
+            return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?'+ 'lat=37.566631&lon=126.978225' +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
         }
 
 
