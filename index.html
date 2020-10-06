@@ -4,14 +4,117 @@
     <meta charset="UTF-8">
     <title>Weather</title>
 
+    <script>
+        var sLocation="London";
+        async function getWeather()
+        {
+            // return await (await fetch('http://api.openweathermap.org/data/2.5/weather?q=' + sLocation + '&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
+            //  return await (await fetch('http://api.openweathermap.org/data/2.5/forecast?q=Seoul&units=metric&cnt=80&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
+            return await (await fetch('http://api.openweathermap.org/data/2.5/onecall?lat=37.566631&lon=126.978225&exclude=minutely&units=metric&lang=kr&appid=0c97470ae3f8b5939f2247ce396b5acd')).json();
+        }
+
+        window.addEventListener('load', async function()
+        {
+            // var de = ["-","-", " ", ":",":"," "];
+            // var kor = ["년","월", "일", "시","분","초"];
+            // var time = [re_year, re_month, re_day, re_hours,re_min, re_seconde];
+            //
+            // var result_de ="";
+            // for(var i =0; i <= kor.length-1; i++)
+            // {
+            //     result_de += time[i]+ de[i];
+            // }
+
+            const weatherResponse = await getWeather();
+             // console.log(weatherResponse.weather[0].main);
+            // console.log("온도", weatherResponse.main.temp - 273.15);
+            console.log(weatherResponse);
+            // console.log(weatherResponse.hourly[0].temp);
+
+            // t[0].innerHTML = parseInt(weatherResponse.main.temp - 273.15);
+            var HourArray= new Array();
+            var RealData = new Array();
+            var Hour_now;
+            for(var i = 0 ; i< weatherResponse.hourly.length; i++)
+            {
+                HourArray[i] = weatherResponse.hourly[i].dt;
+                // RealData[i] = weatherResponse;
+                var date = new Date(HourArray[i]*1000);
+
+                var re_year = date.getFullYear();//year
+                var re_month = date.getMonth()+1;//month
+
+                var re_day = date.getDate();//day
+                var re_hours  = date.getHours();//hour
+                var re_min = date.getMinutes()//minutes
+                var re_seconde = date.getSeconds();//seconde
+
+                if(i==0)
+                {
+                    Hour_now = re_hours;
+                }
+
+                HourArray[i] = re_hours;
+                // console.log(HourArray[i]);
+                // console.log(weatherResponse.hourly[i].temp)
+            }
+            var t = document.getElementsByClassName("item_temperature");
+            var timeArray = document.getElementsByClassName("item_time");
+            var windArray =document.getElementsByClassName("wind_speed");
+
+            var count=0;
+            for(var i = 0 ; i< 5 ; i++)
+            {
+                // console.log(weatherResponse.hourly[count].temp);
+                t[i].innerHTML = parseInt(Math.round(weatherResponse.hourly[count].temp));
+                windArray[i].innerHTML = weatherResponse.hourly[count].wind_speed + " m/s";
+                if(i!=0)
+                {
+                    timeArray[i].innerHTML = HourArray[count] + ":00";
+                }
+
+                count+=3;
+            }
+
+
+
+        });
+
+        function SetWeather()
+        {
+
+        }
+
+        // var xhr = new XMLHttpRequest();
+        // var url = 'http://apis.data.go.kr/1360000/AsosHourlyInfoService/getWthrDataList'; /*URL*/
+        // var queryParams = '?' + encodeURIComponent('ServiceKey') + '='+'7zwa6MtWlhJ5XlgCEPah2NDInv%2FgdbSEjvb8h4kxAFyV9jyksgmCihZ4eZGOahNLqWgNpaUIVEfgpTQ7FfWyow%3D%3D'; /*Service Key*/
+        // queryParams += '&' + encodeURIComponent('ServiceKey') + '=' + encodeURIComponent('-'); /**/
+        // queryParams += '&' + encodeURIComponent('pageNo') + '=' + encodeURIComponent('1'); /**/
+        // queryParams += '&' + encodeURIComponent('numOfRows') + '=' + encodeURIComponent('10'); /**/
+        // queryParams += '&' + encodeURIComponent('dataType') + '=' + encodeURIComponent('XML'); /**/
+        // queryParams += '&' + encodeURIComponent('dataCd') + '=' + encodeURIComponent('ASOS'); /**/
+        // queryParams += '&' + encodeURIComponent('dateCd') + '=' + encodeURIComponent('HR'); /**/
+        // queryParams += '&' + encodeURIComponent('startDt') + '=' + encodeURIComponent('20100101'); /**/
+        // queryParams += '&' + encodeURIComponent('startHh') + '=' + encodeURIComponent('01'); /**/
+        // queryParams += '&' + encodeURIComponent('endDt') + '=' + encodeURIComponent('20100601'); /**/
+        // queryParams += '&' + encodeURIComponent('endHh') + '=' + encodeURIComponent('01'); /**/
+        // queryParams += '&' + encodeURIComponent('stnIds') + '=' + encodeURIComponent('108'); /**/
+        // xhr.open('GET', url + queryParams);
+        // xhr.onreadystatechange = function () {
+        //     if (this.readyState == 4) {
+        //         alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+        //     }
+        // };
+        //
+        // xhr.send('');
+    </script>
+
     <style>
         body
         {
             margin:0px;
             /*background: #5b7fd5;*/
         }
-
-
 
         .container
         {
@@ -21,23 +124,25 @@
 
         .top_section
         {
-            height: 93px;
+            /*height: 93px;*/
             /*background: linear-gradient(180deg, #D0DBF3 0%, rgba(255, 255, 255, 0) 100%);*/
             background: #98c8f2;
         }
 
         .top_section .content
         {
-            position:absolute;
             display:flex;
             margin-left:142px;
-            margin-top:24px;
-            align-items: center;
+            padding-top:24px;
+            padding-bottom:13px;
+            justify-content: space-between;
         }
+
         .top_section a
         {
-            margin-left:860px;
+            margin-right:150px;
         }
+
         .top_section a div
         {
             padding: 10px;
@@ -45,10 +150,12 @@
 
             font-weight: bold;
         }
+
         .top_section .top_title
         {
             width: 133px;
             height: 42px;
+            /*position:absolute;*/
 
             font-family: Roboto;
             font-style: normal;
@@ -58,19 +165,21 @@
 
             color:white;
         }
+
         .middle_section
         {
-            height: 419px;
+            /*height: 419px;*/
 
             background: url("images/top_bg.jpg") no-repeat fixed 50% 50%/100% 100%;
         }
 
         .middle_section .content
         {
-            position:absolute;
+            /*position:absolute;*/
             display:flex;
-            margin-top:46px;
+            padding-top:46px;
             margin-left:142px;
+            padding-bottom: 10px;
             width:0px;
         }
 
@@ -216,7 +325,7 @@
         {
             margin-top:24px;
 
-            width: 95px;
+            width: 101px;
             height: 18px;
 
             font-family: Roboto;
@@ -243,8 +352,8 @@
         .bottom_section
         {
             /*position:absolute;*/
-            height: 450px;
-
+            /*height: 450px;*/
+            padding-bottom: 100px;
             /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
             background: #5b7fd5;
         }
@@ -297,7 +406,6 @@
             color: #FFFFFF;
         }
 
-
         footer
         {
             text-align:center;
@@ -305,45 +413,109 @@
             font-size:20px;
         }
 
-        @media(max-width: 780px)
+        /*태블릿*/
+        @media(max-width: 1024px)
         {
             body
             {
                 background-color: lightgreen;
+                width:1024px;
+                height:960px;
             }
 
             .middle_section
             {
-                /*height:700px;*/
             }
 
             .middle_section #midleft
             {
                 /*display:flex;*/
+                /*flex-direction:column;*/
             }
 
             .middle_section .weather_today
             {
                 /*display:flex;*/
-                /*flex-direction: column;*/
+                flex-direction: column;
+
                 /*margin-left:0px;*/
             }
+
             .middle_section #midleft .button
             {
             }
+
             .middle_section .content
             {
                 /*position:absolute;*/
                 /*flex-direction: column;*/
+                /*justify-content: center;*/
+            }
+
+            .bottom_section .content
+            {
+
+            }
+
+            .bottom_section .weather_week
+            {
+                flex-direction: column;
+                /*margin-left:230px;*/
+            }
+
+            .bottom_section .bottom_title
+            {
+                text-align:left;
+                margin-left:550px;
             }
         }
-    </style>
 
+
+        /*모바일*/
+        @media(max-width: 376px)
+        {
+            body
+            {
+                background-color: yellow;
+                width:375px;
+                height:350px;
+            }
+
+            .middle_section
+            {
+                /*height:1600px;*/
+            }
+
+            .middle_section .content
+            {
+                /*position:absolute;*/
+                flex-direction: column;
+            }
+
+            .middle_section #midleft
+            {
+                /*display:flex;*/
+                flex-direction:column;
+            }
+
+            .middle_section .weather_today
+            {
+                /*display:flex;*/
+                flex-direction: column;
+                padding-top:20px;
+                margin-left:0px;
+            }
+
+            .middle_section #midleft .button
+            {
+            }
+
+        }
+    </style>
 </head>
 
 <body>
 <div class="container">
-
     <div class="top_section">
         <div class="content">
             <div class="top_title">
@@ -355,7 +527,6 @@
                     미세먼지
                 </div>
             </a>
-
         </div>
     </div>
 
@@ -386,10 +557,9 @@
                             NOW
                         </div>
 
-
                         <div class="container_temperature">
                             <div class="item_temperature">
-                                19
+                                0
                             </div>
                             <div class="symbol_temperature">
                                 ℃
@@ -417,7 +587,7 @@
 
                         <div class="container_temperature">
                             <div class="item_temperature">
-                                18
+                                0
                             </div>
                             <div class="symbol_temperature">
                                 ℃
@@ -445,7 +615,7 @@
 
                         <div class="container_temperature">
                             <div class="item_temperature">
-                                16
+                                0
                             </div>
                             <div class="symbol_temperature">
                                 ℃
@@ -473,7 +643,7 @@
 
                         <div class="container_temperature">
                             <div class="item_temperature">
-                                15
+                                0
                             </div>
                             <div class="symbol_temperature">
                                 ℃
@@ -498,10 +668,9 @@
                             00:00
                         </div>
 
-
                         <div class="container_temperature">
                             <div class="item_temperature">
-                                13
+                                0
                             </div>
                             <div class="symbol_temperature">
                                 ℃
