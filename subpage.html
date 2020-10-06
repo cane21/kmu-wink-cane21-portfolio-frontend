@@ -111,6 +111,7 @@
 
             if(weatherResponse.hourly[0].feels_like<10)
             {
+                document.getElementById("bar").setAttribute('value',weatherResponse.hourly[0].feels_like*5.5);
                 document.getElementsByClassName("sentence")[0].children[0].innerHTML="나쁨";
                 document.getElementsByClassName("sentence")[0].children[1].innerHTML="되도록이면 외출을 삼가세요!";
             }
@@ -403,6 +404,12 @@
             height:200px;
         }
 
+        progress
+        {
+            width:350px;
+            height:15px;
+            margin-left:530px;
+        }
 
         .bottom_section
         {
@@ -504,6 +511,10 @@
                     SEOUL
                 </div>
                 <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+
+                <div>
+                    <progress value="20" max="200" id="bar"></progress>
+                </div>
 
                 <div class="sentence">
                     <h1>
