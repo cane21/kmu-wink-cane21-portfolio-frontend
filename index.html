@@ -21,9 +21,12 @@
         imgName['Clouds'] = 'images/wi-cloudy.svg'
         imgName['Rain'] = 'images/wi-day-rain-mix.svg'
 
+        //요청 초과하지 않기!!
+        var Key = 'e4402e4d703a276e5ed68d482b138995';
+
         async function getWeather(sCityId)
         {
-            return await (await fetch('http://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
+            return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=' + Key)).json();
         }
 
         window.addEventListener('load', async function()
@@ -37,12 +40,14 @@
 
                 document.getElementsByClassName("city")[0].innerHTML = cityId;
                 console.log(weatherResponse);
+
                 var HourArray= new Array();
                 var RealData = new Array();
                 var Hour_now;
                 for(var i = 0 ; i< weatherResponse.hourly.length; i++)
                 {
-                    console.log(weatherResponse.hourly[i].weather[0].main);
+                    // console.log(weatherResponse.hourly[i].weather[0].main);
+                    console.log(weatherResponse.hourly[i].weather[0].description);
                     HourArray[i] = weatherResponse.hourly[i].dt;
                     // RealData[i] = weatherResponse;
                     var date = new Date(HourArray[i]*1000);
