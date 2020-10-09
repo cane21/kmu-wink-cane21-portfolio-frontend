@@ -21,6 +21,8 @@
         imgName['Clouds'] = 'images/wi-cloudy.svg'
         imgName['Rain'] = 'images/wi-day-rain-mix.svg'
 
+        var Weekday=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
         //요청 초과하지 않기!!
         var Key = 'e4402e4d703a276e5ed68d482b138995';
 
@@ -40,7 +42,9 @@
 
                 document.getElementsByClassName("city")[0].innerHTML = cityId;
                 console.log(weatherResponse);
+                var today = new Date(weatherResponse.hourly[0].dt*1000);
 
+                document.getElementsByClassName("date")[0].innerHTML = Weekday[today.getDay()] + ' ' + parseInt(today.getMonth()+1) + '/' + today.getDate();
                 var HourArray= new Array();
                 var RealData = new Array();
                 var Hour_now;
@@ -184,7 +188,7 @@
 
         .middle_section #midleft .date
         {
-            width: 180px;
+            width: 250px;
             height: 33.76px;
 
             font-family: Roboto;
