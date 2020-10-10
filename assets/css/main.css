@@ -1,0 +1,470 @@
+body
+{
+    margin:0px;
+    /*background: #5b7fd5;*/
+}
+
+.container
+{
+    margin:0px auto;
+    width:1440px;
+}
+
+.top_section
+{
+    /*height: 93px;*/
+    /*background: linear-gradient(180deg, #D0DBF3 0%, rgba(255, 255, 255, 0) 100%);*/
+    background: #98c8f2;
+}
+
+.top_section .content
+{
+    display:flex;
+    margin-left:142px;
+    padding-top:24px;
+    padding-bottom:13px;
+    justify-content: space-between;
+}
+
+.top_section a
+{
+    margin-right:150px;
+}
+
+.top_section a div
+{
+    padding: 10px;
+    margin:0px;
+
+    font-weight: bold;
+}
+
+.top_section .top_title
+{
+    width: 133px;
+    height: 42px;
+    /*position:absolute;*/
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 36px;
+    line-height: 42px;
+
+    color:white;
+}
+
+.middle_section
+{
+    /*height: 419px;*/
+
+    background: url("images/top_bg.jpg") no-repeat fixed 50% 50%/100% 100%;
+}
+
+.middle_section .content
+{
+    /*position:absolute;*/
+    display:flex;
+    padding-top:46px;
+    margin-left:142px;
+    padding-bottom: 10px;
+    width:0px;
+}
+
+.middle_section #midleft .button
+{
+    margin-top:103.26px;
+    width: 207px;
+    height: 44.68px;
+    left: 145px;
+    top: 356.12px;
+}
+
+.middle_section #midleft .date
+{
+    width: 250px;
+    height: 33.76px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 29px;
+    line-height: 34px;
+
+
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.middle_section #midleft .city
+{
+    margin-top:0.67px;
+    width:248px;
+    height: 79.43px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 60px;
+    line-height: 80px;
+
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
+
+}
+
+.middle_section .weather_today
+{
+    display:flex;
+    margin-left:104px;
+}
+
+.bottom_section .weather_week
+{
+    display:flex;
+    justify-content: center;
+}
+
+
+.main_item
+{
+    margin-left:43px;
+
+    display:flex;
+}
+
+.bottom_section .main_item
+{
+    margin-top:60px;
+    margin-left:63px;
+
+    display:flex;
+}
+.container_itembox
+{
+    margin-left:17.05px;
+}
+
+.main_item .item_time
+{
+    width: 65px;
+    height: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: lightskyblue;
+}
+
+.bottom_section .main_item .item_time
+{
+    font-size:19px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.main_item .container_temperature
+{
+    margin-top:15px;
+    display:flex;
+}
+
+.main_item .item_temperature
+{
+    width: 76px;
+    height: 84px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 72px;
+    line-height: 84px;
+    letter-spacing: -0.07em;
+
+    color: #FFFFFF;
+}
+
+.main_item .symbol_temperature
+{
+    margin-top:10px;
+    width: 14.98px;
+    height: 14.18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+}
+
+.main_item .symbol_weather
+{
+    position:relative;
+    width: 60px;
+    height: 60px;
+
+    /* 아래에서 만든 애니메이션 적용하기 */
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+/*@keyframes myanim{*/
+/*    0% {left: 0px; top: 0px;}*/
+/*    50% {left: 200px; top: 0px;}*/
+/*    100% {left: 0px; top: 0px;}*/
+/*}*/
+
+@keyframes bounce{
+    0%, 100%{
+        top: 5px;
+        animation-timing-function: ease-out;
+    }
+
+    50%{
+        top: 20px;
+        animation-timing-function: ease-in;
+    }
+}
+
+.main_item .wind_speed
+{
+    margin-top:24px;
+
+    width: 101px;
+    height: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+.main_item .item_leftline
+{
+    height: 310px;
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.bottom_section .main_item .item_leftline
+{
+    height:200px;
+}
+
+
+.bottom_section
+{
+    /*position:absolute;*/
+    /*height: 450px;*/
+    padding-bottom: 100px;
+    /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
+    background: #5b7fd5;
+}
+
+.bottom_section .content
+{
+    /*position:absolute;*/
+
+}
+
+.bottom_section .bottom_title
+{
+    font-family: Roboto;
+    font-weight: normal;
+    font-size:40px;
+    text-align:center;
+    color: #d08e45;
+    margin:0px;
+}
+
+
+.button
+{
+    border: 3px solid #FFFFFF;
+    transition:all 1s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.button:hover
+{
+    color:#fff;
+    box-shadow:350px 0 0 0 rgba(1,1,0,0.5) inset;
+}
+
+.button div
+{
+    text-align:center;
+    margin-top:5px;
+    /*font-family: Roboto;*/
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+
+    color: #FFFFFF;
+}
+
+footer
+{
+    text-align:center;
+    font-family:Roboto;
+    font-size:20px;
+}
+
+ul,li
+{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#main-menu > li {
+    float: left;
+    position: relative;
+}
+
+#city_menu > li {
+    padding: 10px 41px;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+#city_menu > li >  a
+{
+    color: rgba(255,255,255,0.6);
+
+    text-decoration: none;
+}
+
+.button:hover #city_menu
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+#city_menu > li >  a:hover {
+    text-decoration: underline;
+}
+
+#city_menu
+{
+    margin-top:10px;
+    position: absolute;
+    background: #182952;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.15s ease-in;
+}
+
+
+
+
+/*태블릿*/
+@media(max-width: 1024px)
+{
+    body
+    {
+        background-color: lightgreen;
+        width:1024px;
+        height:960px;
+    }
+
+    .middle_section
+    {
+    }
+
+    .middle_section #midleft
+    {
+        /*display:flex;*/
+        /*flex-direction:column;*/
+    }
+
+    .middle_section .weather_today
+    {
+        /*display:flex;*/
+        flex-direction: column;
+
+        /*margin-left:0px;*/
+    }
+
+    .middle_section #midleft .button
+    {
+    }
+
+    .middle_section .content
+    {
+        /*position:absolute;*/
+        /*flex-direction: column;*/
+        /*justify-content: center;*/
+    }
+
+    .bottom_section .content
+    {
+
+    }
+
+    .bottom_section .weather_week
+    {
+        flex-direction: column;
+        /*margin-left:230px;*/
+    }
+
+    .bottom_section .bottom_title
+    {
+        text-align:left;
+        margin-left:550px;
+    }
+}
+
+
+/*모바일*/
+@media(max-width: 376px)
+{
+    body
+    {
+        background-color: yellow;
+        width:375px;
+        height:350px;
+    }
+
+    .middle_section
+    {
+        /*height:1600px;*/
+    }
+
+    .middle_section .content
+    {
+        /*position:absolute;*/
+        flex-direction: column;
+    }
+
+    .middle_section #midleft
+    {
+        /*display:flex;*/
+        flex-direction:column;
+    }
+
+    .middle_section .weather_today
+    {
+        /*display:flex;*/
+        flex-direction: column;
+        padding-top:20px;
+        margin-left:0px;
+    }
+
+    .middle_section #midleft .button
+    {
+    }
+
+}
