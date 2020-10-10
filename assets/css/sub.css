@@ -1,0 +1,357 @@
+body
+{
+    margin:0px;
+    /*background: #5b7fd5;*/
+    /*background: #98c8f2;*/
+}
+
+.container
+{
+    margin:0px auto;
+    width:1440px;
+
+}
+
+
+.top_section
+{
+    height: 93px;
+    /*background: linear-gradient(180deg, #D0DBF3 0%, rgba(255, 255, 255, 0) 100%);*/
+    background: #98c8f2;
+}
+
+.top_section .content
+{
+    position:absolute;
+    display:flex;
+    margin-left:142px;
+    margin-top:24px;
+    align-items: center;
+}
+.top_section a
+{
+    margin-left:860px;
+}
+.top_section a div
+{
+    padding: 10px;
+    margin:0px;
+
+    font-weight: bold;
+}
+.top_section .top_title
+{
+    width: 133px;
+    height: 42px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 36px;
+    line-height: 42px;
+
+    color:white;
+}
+.middle_section
+{
+    /*position:absolute;*/
+    height: 869px;
+
+    /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
+    /*background: #5b7fd5;*/
+    background: #0097a6;
+}
+
+.middle_section .content
+{
+    position:absolute;
+    /*display:flex;*/
+    margin-top:46px;
+    /*margin-left:580px;*/
+    /*width:0px;*/
+}
+
+.middle_section .content .symbol_smile
+{
+    width:320px;
+    height:320px;
+
+    margin-left:544px;
+}
+
+.testclass
+{
+    width:320px;
+    height:320px;
+    margin-left:544px;
+    background: url("../../assets/images/smile.png")  50% 50%/100% 100%;
+}
+
+.middle_section .sentence
+{
+    color:white;
+}
+.middle_section .content h1
+{
+    color:yellow;
+    margin-left:680px;
+}
+.middle_section .content h3
+{
+
+    margin-left:588px;
+}
+.middle_section #midleft .button
+{
+    margin-top:103.26px;
+    width: 207px;
+    height: 44.68px;
+    left: 145px;
+    top: 356.12px;
+}
+
+.middle_section #midleft .date
+{
+    width: 180px;
+    height: 33.76px;
+
+    /*font-family: Roboto;*/
+    font-style: normal;
+    font-weight: normal;
+    font-size: 29px;
+    line-height: 34px;
+
+
+    color: rgba(255, 255, 255, 0.8);
+
+}
+
+.middle_section #midleft .city
+{
+    margin-top:0.67px;
+    width: 248px;
+    height: 79.43px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 68px;
+    line-height: 80px;
+
+    letter-spacing: 0.15em;
+
+    color: #FFFFFF;
+    margin-left:590px;
+}
+
+.middle_section #midleft
+{
+    /*justify-content: center;*/
+}
+.middle_section .weather_today
+{
+    /*position:absolute;*/
+    /*left:-150px;*/
+    display:flex;
+    /*justify-content: center;*/
+    /*margin-left:104px;*/
+    padding-top:590px;
+    justify-content: center;
+}
+
+
+.weather_today .symbol_emotion
+{
+    width:60px;
+    height:60px;
+    background: url("../images/smile.png") no-repeat 50% 50%/100% 100%;
+}
+
+.bottom_section .weather_week
+{
+    display:flex;
+    justify-content: center;
+}
+
+
+.main_item
+{
+    margin-left:43px;
+
+    display:flex;
+}
+
+
+.bottom_section .main_item
+{
+    margin-top:60px;
+    margin-left:63px;
+
+    display:flex;
+}
+.container_itembox
+{
+    margin-left:17.05px;
+}
+
+.main_item .item_time
+{
+    width: 65px;
+    height: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: lightskyblue;
+}
+
+.bottom_section .main_item .item_time
+{
+    font-size:19px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.main_item .container_temperature
+{
+    margin-top:15px;
+    display:flex;
+}
+
+.main_item .item_temperature
+{
+    width: 90px;
+    height: 84px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 35px;
+    line-height: 84px;
+    letter-spacing: -0.07em;
+
+    color: #FFFFFF;
+}
+
+.main_item .symbol_temperature
+{
+    margin-top:10px;
+    width: 14.98px;
+    height: 14.18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+
+}
+
+.main_item .symbol_weather
+{
+    width: 60px;
+    height: 60px;
+}
+
+.main_item .wind_speed
+{
+    margin-top:24px;
+
+    width: 95px;
+    height: 18px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #FFFFFF;
+}
+
+.main_item .item_leftline
+{
+    height: 240px;
+    border-left: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.bottom_section .main_item .item_leftline
+{
+    height:200px;
+}
+
+progress
+{
+    width:350px;
+    height:15px;
+    margin-left:530px;
+}
+
+.bottom_section
+{
+    /*position:absolute;*/
+    height: 450px;
+
+    /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
+    background: #5b7fd5;
+}
+
+.bottom_section .content
+{
+    /*position:absolute;*/
+
+}
+
+.bottom_section .bottom_title
+{
+    font-family: Roboto;
+    font-weight: normal;
+    font-size:40px;
+    text-align:center;
+    color: #d08e45;
+    margin:0px;
+}
+
+
+.button
+{
+    border: 3px solid #FFFFFF;
+    transition:all 1s;
+    cursor: pointer;
+}
+
+a{
+    text-decoration: none;
+}
+
+.button:hover
+{
+    color:#fff;
+    box-shadow:350px 0 0 0 rgba(1,1,0,0.5) inset;
+
+}
+
+
+.button div
+{
+    text-align:center;
+    margin-top:5px;
+    /*font-family: Roboto;*/
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+
+    color: #FFFFFF;
+}
+
+
+footer
+{
+    text-align:center;
+    font-family:Roboto;
+    font-size:20px;
+}

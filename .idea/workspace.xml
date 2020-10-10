@@ -20,8 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0b84fd8-6030-455b-aae6-2f8d75a51ef0" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/sub.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/sub.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/sub.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/sub.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/WeatherPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/WeatherPage.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/subpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/subpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +83,7 @@
       <workItem from="1602075605287" duration="2755000" />
       <workItem from="1602144234847" duration="924000" />
       <workItem from="1602274335525" duration="1226000" />
-      <workItem from="1602322128925" duration="5948000" />
+      <workItem from="1602322128925" duration="13644000" />
     </task>
     <servers />
   </component>
@@ -176,6 +179,14 @@
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state x="2560" y="0" width="1172" height="1127" maximized="true" key="dock-window-1/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1602340785440" />
+    <state x="2560" y="0" width="1936" height="1127" maximized="true" key="dock-window-2" timestamp="1602343905738">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2560" y="0" width="1936" height="1127" maximized="true" key="dock-window-2/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1602343905738" />
+    <state x="2560" y="0" width="1936" height="1127" maximized="true" key="dock-window-3" timestamp="1602350336537">
+      <screen x="2560" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2560" y="0" width="1936" height="1127" maximized="true" key="dock-window-3/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1602350336537" />
     <state x="936" y="330" key="run.anything.popup" timestamp="1601987342430">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

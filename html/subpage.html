@@ -4,483 +4,8 @@
     <meta charset="UTF-8">
     <title>Subpage</title>
 
-    <script>
-
-        async function getWeather()
-        {
-            return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?'+ 'lat=37.566631&lon=126.978225' +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
-        }
-
-        window.addEventListener('load', async function()
-        {
-            var weatherResponse = await getWeather();
-
-            console.log(weatherResponse);
-            var HourArray= new Array();
-            // var RealData = new Array();
-            // var Hour_now;
-            for(var i = 0 ; i< weatherResponse.hourly.length; i++)
-            {
-                console.log(weatherResponse.hourly[i].weather[0].main);
-                HourArray[i] = weatherResponse.hourly[i].dt;
-                // RealData[i] = weatherResponse;
-                var date = new Date(HourArray[i]*1000);
-
-                var re_year = date.getFullYear();//year
-                var re_month = date.getMonth()+1;//month
-
-                var re_day = date.getDate();//day
-                var re_hours  = date.getHours();//hour
-                var re_min = date.getMinutes()//minutes
-                var re_seconde = date.getSeconds();//seconde
-
-                if(i==0)
-                {
-                    Hour_now = re_hours;
-                }
-
-                HourArray[i] = re_hours;
-                // console.log(HourArray[i]);
-                // console.log(weatherResponse.hourly[i].temp)
-            }
-            //
-            var t = document.getElementsByClassName("item_temperature");
-            var timeArray = document.getElementsByClassName("item_time");
-            var windArray =document.getElementsByClassName("wind_speed");
-            var count=3;
-            var emotionImg = document.getElementsByClassName("symbol_smile");
-
-            for(var i = 1 ; i< 8 ; i++)
-            {
-                // console.log(weatherResponse.hourly[count].temp);
-                // t[i].innerHTML = parseInt(Math.round(weatherResponse.hourly[count].temp));
-                // windArray[i].innerHTML = weatherResponse.hourly[count].wind_speed + " m/s";
-                // if(i!=0)
-                // {
-                    timeArray[i].innerHTML = HourArray[count] + ":00";
-                // }
-                var temp= parseInt(weatherResponse.hourly[i].feels_like);
-
-                if(i>1)
-                {
-                    if(temp<10)
-                    {
-                        emotionImg[i].setAttribute('src','images/normal.jpg')
-                    }
-                    else if(temp<11)
-                    {
-                        emotionImg[i].setAttribute('src','images/normal.png')
-                    }
-                    else
-                    {
-                        emotionImg[i].setAttribute('src','images/smile.png')
-                    }
-                }
-
-                // weatherImg[i].setAttribute('src',imgName[weatherResponse.hourly[count].weather[0].main]);
-                count+=3;
-            }
-
-            for(var i=0 ; i< 8; i++)
-            {
-                // t[i].innerHTML = parseInt(Math.round(weatherResponse.daily[i].temp.day));
-                t[i].innerHTML = weatherResponse.hourly[i].feels_like;
-
-                var temp= parseInt(weatherResponse.hourly[i].feels_like);
-
-                if(temp<10)
-                {
-                    windArray[i].innerHTML = "나쁨";
-                    emotionImg[i].setAttribute('src','images/normal.png')
-                }
-                else if(temp<11)
-                {
-                    windArray[i].innerHTML = "보통";
-                    emotionImg[i].setAttribute('src','images/normal.png')
-                }
-                else
-                {
-                    windArray[i].innerHTML = "좋음";
-                    emotionImg[i].setAttribute('src','images/smile.png')
-                }
-
-                // weatherImg[i+5].setAttribute('src',imgName[weatherResponse.daily[i].weather[0].main]);
-            }
-
-            if(weatherResponse.hourly[0].feels_like<10)
-            {
-                document.getElementById("bar").setAttribute('value',weatherResponse.hourly[0].feels_like*5.5);
-                document.getElementsByClassName("sentence")[0].children[0].innerHTML="나쁨";
-                document.getElementsByClassName("sentence")[0].children[1].innerHTML="되도록이면 외출을 삼가세요!";
-            }
-            else if(weatherResponse.hourly[0].feels_like<11)
-            {
-                document.getElementsByClassName("sentence")[0].children[0].innerHTML="보통";
-                document.getElementsByClassName("sentence")[0].children[1].innerHTML="지금은 외출하셔도 좋습니다";
-            }
-            else if(weatherResponse.hourly[0].feels_like>11)
-            {
-                document.getElementsByClassName("sentence")[0].children[0].innerHTML="좋음";
-                document.getElementsByClassName("sentence")[0].children[1].innerHTML="외출하기에 최적의 날씨입니다";
-            }
-
-        });
-    </script>
-
-    <style>
-        body
-        {
-            margin:0px;
-            /*background: #5b7fd5;*/
-            /*background: #98c8f2;*/
-        }
-
-        .container
-        {
-            margin:0px auto;
-            width:1440px;
-
-        }
-
-        .top_section
-        {
-            height: 93px;
-            /*background: linear-gradient(180deg, #D0DBF3 0%, rgba(255, 255, 255, 0) 100%);*/
-            background: #98c8f2;
-        }
-
-        .top_section .content
-        {
-            position:absolute;
-            display:flex;
-            margin-left:142px;
-            margin-top:24px;
-            align-items: center;
-        }
-        .top_section a
-        {
-            margin-left:860px;
-        }
-        .top_section a div
-        {
-            padding: 10px;
-            margin:0px;
-
-            font-weight: bold;
-        }
-        .top_section .top_title
-        {
-            width: 133px;
-            height: 42px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: lighter;
-            font-size: 36px;
-            line-height: 42px;
-
-            color:white;
-        }
-        .middle_section
-        {
-            /*position:absolute;*/
-            height: 869px;
-
-            /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
-            /*background: #5b7fd5;*/
-            background: #0097a6;
-        }
-
-        .middle_section .content
-        {
-            position:absolute;
-            /*display:flex;*/
-            margin-top:46px;
-            /*margin-left:580px;*/
-            /*width:0px;*/
-        }
-
-        .middle_section .content .symbol_smile
-        {
-            width:320px;
-            height:320px;
-
-            margin-left:544px;
-        }
-
-        .middle_section .sentence
-        {
-            color:white;
-        }
-        .middle_section .content h1
-        {
-            color:yellow;
-            margin-left:680px;
-        }
-        .middle_section .content h3
-        {
-
-            margin-left:588px;
-        }
-        .middle_section #midleft .button
-        {
-            margin-top:103.26px;
-            width: 207px;
-            height: 44.68px;
-            left: 145px;
-            top: 356.12px;
-        }
-
-        .middle_section #midleft .date
-        {
-            width: 180px;
-            height: 33.76px;
-
-            /*font-family: Roboto;*/
-            font-style: normal;
-            font-weight: normal;
-            font-size: 29px;
-            line-height: 34px;
-
-
-            color: rgba(255, 255, 255, 0.8);
-
-        }
-
-        .middle_section #midleft .city
-        {
-            margin-top:0.67px;
-            width: 248px;
-            height: 79.43px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 68px;
-            line-height: 80px;
-
-            letter-spacing: 0.15em;
-
-            color: #FFFFFF;
-            margin-left:590px;
-        }
-
-        .middle_section #midleft
-        {
-            /*justify-content: center;*/
-        }
-        .middle_section .weather_today
-        {
-            /*position:absolute;*/
-            /*left:-150px;*/
-            display:flex;
-            /*justify-content: center;*/
-            /*margin-left:104px;*/
-            padding-top:590px;
-            justify-content: center;
-        }
-
-        .weather_today .symbol_smile
-        {
-            width:60px;
-            height:60px;
-        }
-        .bottom_section .weather_week
-        {
-            display:flex;
-            justify-content: center;
-        }
-
-
-        .main_item
-        {
-            margin-left:43px;
-
-            display:flex;
-        }
-
-
-        .bottom_section .main_item
-        {
-            margin-top:60px;
-            margin-left:63px;
-
-            display:flex;
-        }
-        .container_itembox
-        {
-            margin-left:17.05px;
-        }
-
-        .main_item .item_time
-        {
-            width: 65px;
-            height: 18px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 28px;
-
-            color: lightskyblue;
-        }
-
-        .bottom_section .main_item .item_time
-        {
-            font-size:19px;
-            font-weight: normal;
-            color: #ffffff;
-        }
-
-        .main_item .container_temperature
-        {
-            margin-top:15px;
-            display:flex;
-        }
-
-        .main_item .item_temperature
-        {
-            width: 90px;
-            height: 84px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 35px;
-            line-height: 84px;
-            letter-spacing: -0.07em;
-
-            color: #FFFFFF;
-        }
-
-        .main_item .symbol_temperature
-        {
-            margin-top:10px;
-            width: 14.98px;
-            height: 14.18px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 21px;
-            color: #FFFFFF;
-
-        }
-
-        .main_item .symbol_weather
-        {
-            width: 60px;
-            height: 60px;
-        }
-
-        .main_item .wind_speed
-        {
-            margin-top:24px;
-
-            width: 95px;
-            height: 18px;
-
-            font-family: Roboto;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 28px;
-
-            color: #FFFFFF;
-        }
-
-        .main_item .item_leftline
-        {
-            height: 240px;
-            border-left: 1px solid rgba(255, 255, 255, 0.6);
-        }
-
-        .bottom_section .main_item .item_leftline
-        {
-            height:200px;
-        }
-
-        progress
-        {
-            width:350px;
-            height:15px;
-            margin-left:530px;
-        }
-
-        .bottom_section
-        {
-            /*position:absolute;*/
-            height: 450px;
-
-            /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
-            background: #5b7fd5;
-        }
-
-        .bottom_section .content
-        {
-            /*position:absolute;*/
-
-        }
-
-        .bottom_section .bottom_title
-        {
-            font-family: Roboto;
-            font-weight: normal;
-            font-size:40px;
-            text-align:center;
-            color: #d08e45;
-            margin:0px;
-        }
-
-
-        .button
-        {
-            border: 3px solid #FFFFFF;
-            transition:all 1s;
-            cursor: pointer;
-        }
-
-        a{
-            text-decoration: none;
-        }
-
-        .button:hover
-        {
-            color:#fff;
-            box-shadow:350px 0 0 0 rgba(1,1,0,0.5) inset;
-
-        }
-
-
-        .button div
-        {
-            text-align:center;
-            margin-top:5px;
-            /*font-family: Roboto;*/
-            font-style: normal;
-            font-weight: normal;
-            font-size: 24px;
-
-            color: #FFFFFF;
-        }
-
-
-        footer
-        {
-            text-align:center;
-            font-family:Roboto;
-            font-size:20px;
-        }
-
-
-
-
-
-
-    </style>
-
+    <link rel="stylesheet" type="text/css" href="../assets/css/sub.css">
+    <script type="text/javascript" src="../assets/js/sub.js"></script>
 </head>
 
 <body>
@@ -492,7 +17,7 @@
                 WEATHER
             </div>
 
-            <a href="index.html" class="button" >
+            <a href="WeatherPage.html" class="button" >
                 <div>
                     오늘날씨
                 </div>
@@ -508,7 +33,9 @@
                 <div class="city">
                     SEOUL
                 </div>
-                <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+
+<!--                <img src="../assets/images/wi-day-sunny.svg" class="symbol_smile" alt="smile.png">-->
+                <div class="testclass"></div>
 
                 <div>
                     <progress value="20" max="200" id="bar"></progress>
@@ -547,7 +74,8 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
+<!--                    <img src="../assets/images/wi-day-sunny.svg" class="symbol_smile" alt="smile.png">-->
 
                     <div class="wind_speed">
                         6 m/s
@@ -572,7 +100,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -597,7 +125,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -622,7 +150,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -647,7 +175,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -672,7 +200,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -697,7 +225,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
@@ -722,7 +250,7 @@
                         </div>
                     </div>
 
-                    <img src="images/smile.png" class="symbol_smile" alt="smile.png">
+                    <div class="symbol_emotion"></div>
 
                     <div class="wind_speed">
                         6 m/s
