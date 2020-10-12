@@ -1,5 +1,6 @@
 body
 {
+    width:1880px;
     margin:0px;
     /*background: #5b7fd5;*/
 }
@@ -58,7 +59,7 @@ body
 {
     /*height: 419px;*/
 
-    background: url("../../assets/images/top_bg.jpg") no-repeat fixed 50% 50%/100% 100%;
+    background: url("../../assets/images/top_bg.jpg") no-repeat  50% 50%/100% 100%;
 }
 
 .middle_section .content

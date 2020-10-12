@@ -1,5 +1,7 @@
 body
 {
+    position:absolute;
+    width:1880px;
     margin:0px;
     /*background: #5b7fd5;*/
     /*background: #98c8f2;*/
@@ -12,25 +14,25 @@ body
 
 }
 
-
 .top_section
 {
-    height: 93px;
+    /*height: 93px;*/
     /*background: linear-gradient(180deg, #D0DBF3 0%, rgba(255, 255, 255, 0) 100%);*/
     background: #98c8f2;
 }
 
 .top_section .content
 {
-    position:absolute;
+    /*position:absolute;*/
     display:flex;
     margin-left:142px;
-    margin-top:24px;
-    align-items: center;
+    padding-top:24px;
+    padding-bottom:13px;
+    justify-content: space-between;
 }
 .top_section a
 {
-    margin-left:860px;
+    margin-right:150px;
 }
 .top_section a div
 {
@@ -55,7 +57,9 @@ body
 .middle_section
 {
     /*position:absolute;*/
-    height: 869px;
+
+    /*height 지정 안하면 h3땜에 여백생김*/
+    height: 600px;
 
     /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
     /*background: #5b7fd5;*/
@@ -64,9 +68,8 @@ body
 
 .middle_section .content
 {
-    position:absolute;
     /*display:flex;*/
-    margin-top:46px;
+    padding-top:46px;
     /*margin-left:580px;*/
     /*width:0px;*/
 }
@@ -98,8 +101,8 @@ body
 }
 .middle_section .content h3
 {
-
     margin-left:588px;
+    margin-bottom:0;
 }
 .middle_section #midleft .button
 {
@@ -144,21 +147,6 @@ body
     margin-left:590px;
 }
 
-.middle_section #midleft
-{
-    /*justify-content: center;*/
-}
-.middle_section .weather_today
-{
-    /*position:absolute;*/
-    /*left:-150px;*/
-    display:flex;
-    /*justify-content: center;*/
-    /*margin-left:104px;*/
-    padding-top:590px;
-    justify-content: center;
-}
-
 
 .weather_today .symbol_emotion
 {
@@ -167,28 +155,20 @@ body
     background: url("../images/smile.png") no-repeat 50% 50%/100% 100%;
 }
 
-.bottom_section .weather_week
+.bottom_section .weather_today
 {
     display:flex;
     justify-content: center;
 }
 
-
-.main_item
-{
-    margin-left:43px;
-
-    display:flex;
-}
-
-
 .bottom_section .main_item
 {
-    margin-top:60px;
+    padding-top:60px;
     margin-left:63px;
 
     display:flex;
 }
+
 .container_itembox
 {
     margin-left:17.05px;
@@ -197,7 +177,7 @@ body
 .main_item .item_time
 {
     width: 65px;
-    height: 18px;
+    height: 15px;
 
     font-family: Roboto;
     font-style: normal;
@@ -217,7 +197,7 @@ body
 
 .main_item .container_temperature
 {
-    margin-top:15px;
+    padding-top:15px;
     display:flex;
 }
 
@@ -238,7 +218,7 @@ body
 
 .main_item .symbol_temperature
 {
-    margin-top:10px;
+    padding-top:10px;
     width: 14.98px;
     height: 14.18px;
 
@@ -259,7 +239,7 @@ body
 
 .main_item .wind_speed
 {
-    margin-top:24px;
+    padding-top:24px;
 
     width: 95px;
     height: 18px;
@@ -294,7 +274,7 @@ progress
 .bottom_section
 {
     /*position:absolute;*/
-    height: 450px;
+    /*height: 450px;*/
 
     /*background: linear-gradient(0deg, rgb(95, 134, 213) 0%, rgb(255, 255, 255, 0) 100%);*/
     background: #5b7fd5;
@@ -303,7 +283,7 @@ progress
 .bottom_section .content
 {
     /*position:absolute;*/
-
+    padding-bottom:30px;
 }
 
 .bottom_section .bottom_title

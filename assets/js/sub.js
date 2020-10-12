@@ -42,7 +42,7 @@ window.addEventListener('load', async function()
     var count=3;
     var emotionImg = document.getElementsByClassName("symbol_emotion");
 
-    for(var i = 0 ; i< 8 ; i++)
+    for(var i = 0 ; i< 7 ; i++)
     {
         if(i!=0)
         {
@@ -68,7 +68,7 @@ window.addEventListener('load', async function()
         count+=3;
     }
 
-    for(var i=0 ; i< 8; i++)
+    for(var i=0 ; i< 7; i++)
     {
         // t[i].innerHTML = parseInt(Math.round(weatherResponse.daily[i].temp.day));
         t[i].innerHTML = weatherResponse.hourly[i].feels_like;
