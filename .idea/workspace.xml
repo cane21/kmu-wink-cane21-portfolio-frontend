@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f0b84fd8-6030-455b-aae6-2f8d75a51ef0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/WeatherPage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/WeatherPage.html" afterDir="false" />
-    </list>
+    <list default="true" id="f0b84fd8-6030-455b-aae6-2f8d75a51ef0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +77,7 @@
       <workItem from="1602430169610" duration="2398000" />
       <workItem from="1602462616405" duration="5017000" />
       <workItem from="1602477118314" duration="3958000" />
-      <workItem from="1602562202273" duration="4986000" />
+      <workItem from="1602562202273" duration="5138000" />
     </task>
     <servers />
   </component>
