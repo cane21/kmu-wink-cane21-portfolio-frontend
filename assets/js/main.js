@@ -21,7 +21,7 @@ var Key = 'e4402e4d703a276e5ed68d482b138995';
 
 async function getWeather(sCityId)
 {
-    // return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=' + Key)).json();
+    return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=' + Key)).json();
 }
 
 window.addEventListener('load', async function()
@@ -92,4 +92,41 @@ async function city_click(cityId)
         t[i+5].innerHTML = parseInt(Math.round(weatherResponse.daily[i].temp.day));
         weatherImg[i+5].setAttribute('src',imgName[weatherResponse.daily[i].weather[0].main]);
     }
+}
+
+window.onkeydown=function()
+{
+    console.log(event.keyCode);
+    var code={};
+
+    var temp = document.getElementsByClassName("item_temperature")[0].innerHTML;
+    var Text = "현재 온도는 " + temp + "도 입니다.";
+    if(event.keyCode==13)
+    {
+        speak(Text,{
+            rate: 0.8,
+            pitch: 1.2,
+            lang: "ko-KR"}
+        )
+    }
+}
+
+function speak(text, opt_prop) {
+    if (typeof SpeechSynthesisUtterance === "undefined" || typeof window.speechSynthesis === "undefined") {
+        alert("이 브라우저는 음성 합성을 지원하지 않습니다.")
+        return
+    }
+
+    window.speechSynthesis.cancel() // 현재 읽고있다면 초기화
+
+    const prop = opt_prop || {}
+
+    const speechMsg = new SpeechSynthesisUtterance()
+    speechMsg.rate = prop.rate || 1 // 속도: 0.1 ~ 10
+    speechMsg.pitch = prop.pitch || 1 // 음높이: 0 ~ 2
+    speechMsg.lang = prop.lang || "ko-KR"
+    speechMsg.text = text
+
+    // SpeechSynthesisUtterance에 저장된 내용을 바탕으로 음성합성 실행
+    window.speechSynthesis.speak(speechMsg)
 }
