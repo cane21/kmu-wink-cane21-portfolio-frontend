@@ -68,8 +68,8 @@ async function city_click(cityId)
     var t = document.getElementsByClassName("item_temperature");
     var timeArray = document.getElementsByClassName("item_time");
     var windArray =document.getElementsByClassName("wind_speed");
-    var count=0;
     var weatherImg = document.getElementsByClassName("symbol_weather");
+    var count=0;
 
     for(var i = 0 ; i< 5 ; i++)
     {
@@ -109,7 +109,8 @@ window.onkeydown=function()
     }
 }
 
-function speak(text, opt_prop) {
+function speak(text, opt_prop)
+{
     if (typeof SpeechSynthesisUtterance === "undefined" || typeof window.speechSynthesis === "undefined") {
         alert("이 브라우저는 음성 합성을 지원하지 않습니다.");
         return;

@@ -21,7 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f0b84fd8-6030-455b-aae6-2f8d75a51ef0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/sub.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/sub.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/subpage.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/subpage.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +83,7 @@
       <workItem from="1602430169610" duration="2398000" />
       <workItem from="1602462616405" duration="5017000" />
       <workItem from="1602477118314" duration="3958000" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
       <workItem from="1603072261640" duration="47000" />
       <workItem from="1603852286826" duration="1940000" />
@@ -87,6 +91,11 @@
 =======
       <workItem from="1602562202273" duration="6779000" />
 >>>>>>> 38bc3d45262a1a6be37fc1f736c92941b6a3eee6
+=======
+      <workItem from="1602562202273" duration="7495000" />
+      <workItem from="1603968946796" duration="2860000" />
+      <workItem from="1604326850154" duration="1207000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -196,10 +205,10 @@
     </state>
     <state width="1898" height="342" key="GridCell.Tab.3.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602477078207" />
     <state width="2539" height="492" key="GridCell.Tab.3.right/0.0.2560.1400@0.0.2560.1400" timestamp="1601996160751" />
-    <state x="2560" y="0" width="1936" height="1127" key="dock-window-1" timestamp="1602572394814">
+    <state x="2560" y="0" width="1936" height="1127" key="dock-window-1" timestamp="1603973558723">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
-    <state x="2560" y="0" width="1936" height="1127" key="dock-window-1/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1602572394814" />
+    <state x="2560" y="0" width="1936" height="1127" key="dock-window-1/0.0.2560.1400/2560.0.1920.1040@0.0.2560.1400" timestamp="1603973558723" />
     <state x="2560" y="0" width="1936" height="1127" maximized="true" key="dock-window-2" timestamp="1602343905738">
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
