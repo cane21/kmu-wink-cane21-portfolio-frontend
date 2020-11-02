@@ -1,3 +1,5 @@
+var Weekday=['SUNDAY','MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY'];
+
 async function getWeather()
 {
     return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?'+ 'lat=37.566631&lon=126.978225' +'&exclude=minutely&units=metric&lang=kr&appid=e4402e4d703a276e5ed68d482b138995')).json();
@@ -5,8 +7,8 @@ async function getWeather()
 
 window.addEventListener('load', async function()
 {
-    var weatherResponse = await getWeather();
 
+    var weatherResponse = await getWeather();
     console.log(weatherResponse);
     var HourArray= new Array();
     // var RealData = new Array();
@@ -46,8 +48,9 @@ window.addEventListener('load', async function()
     {
         if(i!=0)
         {
-        timeArray[i].innerHTML = HourArray[count] + ":00";
+            // timeArray[i].innerHTML = HourArray[count] + ":00";
         }
+        timeArray[i].innerHTML = Weekday[i];
 
         var temp= parseInt(weatherResponse.hourly[i].feels_like);
 

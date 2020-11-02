@@ -21,7 +21,7 @@ var Key = 'e4402e4d703a276e5ed68d482b138995';
 
 async function getWeather(sCityId)
 {
-    // return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=' + Key)).json();
+    return await (await fetch('https://api.openweathermap.org/data/2.5/onecall?' +coord[sCityId] +'&exclude=minutely&units=metric&lang=kr&appid=' + Key)).json();
 }
 
 window.addEventListener('load', async function()
@@ -63,8 +63,6 @@ async function city_click(cityId)
         }
 
         HourArray[i] = re_hours;
-        // console.log(HourArray[i]);
-        // console.log(weatherResponse.hourly[i].temp)
     }
 
     var t = document.getElementsByClassName("item_temperature");
